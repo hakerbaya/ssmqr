@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scanner</title>
+    <link rel="stylesheet" href="../public/styles/scanner.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="../assets/vector.png"/>
+        <h1>
+            <span>S</span>
+            <span>S</span>
+            <span>M</span>
+            <span>Q</span>
+            <span>R</span>
+        </h1>
+    </div>
+    
+    <div class="video-container">
+        <video muted playsinline id="qr-video"></video>
+    </div>
+    
+   <div class="container-details">
+        <div class="details">
+                <p id="fullname" style="font-weight: bold; font-size: larger;"></p>
+                <p id="parentage"></p>
+                <p id="address"></p>
+                <p id="gender"></p>
+                <p id="department"></p>
+                <p id="semester"></p>
+                <p id="section"></p>
+            </div>
+            <div class="photo">
+                
+            </div>
+        </div>
+    </div>
+    
+
+   
+   
+
+</body>
+    
+
+
+
+<script type="module">
+    import QrScanner from "../public/scripts/qr-scanner.min.js";
+    QrScanner.WORKER_PATH = '../public/scripts/qr-scanner-worker.min.js';
+    
+    // Resuable Function For Selecting DOM Elements
+    function $(element){
+        return document.querySelector(element);
+    }
+
+    // DOM ID'S
+    const IDS = {
+        video: '#qr-video',
+        fullName: '#fullname',
+        parentage: '#parentage',
+        address: '#address',
+        gender: '#gender',
+        department: '#department',
+        semester: '#semester',
+        section: '#section',
+        notFound: '#not-found'
+    };
+
+    //DOM CLASSES
+    const CLASSES = {
+        details: '.details',
+        photo: '.photo',
+        containerDetails: '.container-details'
+    };
+
+    // Hide the Container First
+   
+
+    // Initiating Scanner
+    const scanner = new QrScanner($(IDS.video), result => {
+        const url = `/verify/${result}`;
+            fetch(url)
+                .then(function(resp){
+                if(resp.status == "404"){
+                    $(CLASSES.containerDetails).style.padding = "10px";
+                    $(CLASSES.photo).style.display = "none";
+                    $(IDS.video).style.borderColor = "red";
+                    $(CLASSES.details).style.display = "None";
+                    // $(IDS.notFound).style.display = "block";
+                    // $(IDS.notFound).innerHTML = "Not Found";
+                    
+                } else{
+                    $(CLASSES.containerDetails).style.padding = "10px";
+                    $(CLASSES.details).style.display = 'flex';
+                    $(CLASSES.photo).style.display = 'block';
+                    // $(IDS.notFound).style.display = "none";
+                    return resp.json();
+                }
+            
+                })
+            
+                .then(function(elem){
+                    $(IDS.fullName).innerHTML = `${elem.firstName} ${elem.middleName} ${elem.lastName}`;
+                    $(IDS.parentage).innerHTML = `${elem.parentage}`;
+                    $(IDS.address).innerHTML = `${elem.address}`;
+                    $(IDS.gender).innerHTML = `${elem.gender}`;
+                    $(IDS.department).innerHTML = `${elem.department}`;
+                    $(IDS.semester).innerHTML = `${elem.semester}`;
+                    $(IDS.section).innerHTML = `${elem.section}`;
+                    $(CLASSES.photo).innerHTML = `<img src="/uploads/${elem.pic}" height = "100px" width = "100px" />`
+                });
+    });
+    scanner.start();
+    
+
+
+    
+</script>
+</html>

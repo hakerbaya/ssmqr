@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+        *,html{
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .id-card-container{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(241, 239, 239);
+            border-radius: 10px;
+            font-size: .4em;
+            font-style: italic;
+            width:450px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            -moz-box-shadow:    inset 0 0 10px #000000;
+            -webkit-box-shadow: inset 0 0 10px #000000;
+            box-shadow:         inset 0 0 10px #000000;
+        }
+        .id-card-container::before{
+            position: absolute;
+            content: '';
+            width: 20px;
+            height: 250px;
+            background: rgba(8, 60, 73, 0.671);
+            margin-left: -5px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            
+
+        }
+        
+
+        .id-details-container{
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+        .id-details-container p{
+            font-size: 2em;
+        }
+        .id-image-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 60px;
+            
+        }
+        .id-image-container img{
+            background: rgb(251, 251, 255);
+            width:200px;
+            height: 200px;
+            border-radius: 5px;
+
+        }
+
+        .download-pdf{
+            margin-top: 10px;
+            
+        }
+        #dwn{
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid slategray;
+            cursor: pointer;
+            background: #DCDCDC;
+            text-transform: uppercase;
+
+        }
+        #dwn:hover{
+            background: slategray;
+            color: white;
+
+        }
+        #dwn:active{
+            transform: scale(0.9);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="id-card-container">
+        
+        <div class="id-details-container">
+            <!-- <h1>Enroll</h1>
+            <p>16205135028</p> -->
+            <h1>Name</h1>
+            <p><%= data.firstName %> <%=data.middleName %> <%= data.lastName %></p>
+            <h1>Parentage</h1>
+            <p><%= data.parentage %></p>
+            <h1>Address</h1>
+            <p><%= data.address %></p>
+            <h1>DOB</h1>
+            <p><% if(data.dob.getMonth() < 10 && data.dob.getUTCDate() < 10) { %><%= data.dob.getFullYear() %>-0<%= data.dob.getMonth()+1 %>-0<%= data.dob.getUTCDate() %><% } else if(data.dob.getUTCDate() < 10) { %><%= data.dob.getFullYear() %>-<%= data.dob.getMonth()+1 %>-0<%= data.dob.getUTCDate() %><% } else if(data.dob.getMonth()+1 < 10) { %><%= data.dob.getFullYear() %>-0<%= data.dob.getMonth()+1 %>-<%= data.dob.getUTCDate() %><% } else { %><%= data.dob.getFullYear() %>-<%= data.dob.getMonth()+1 %>-<%= data.dob.getUTCDate() %><% } %></p>
+            <h1>Department</h1>
+            <p><%= data.department %></p>
+            <h1>Semester</h1>
+            <p><%= data.semester %></p>
+            <h1>Section</h1>
+            <p><%= data.section %></p>
+            <h1>Bus Stop</h1>
+            <p><%= data.busStop %></p>            
+        </div>
+        <div class="id-image-container">
+            <img src="<%= data.qrCode %>" alt="QrImage">
+        </div>
+
+    </div>
+
+    
+    <div class="download-pdf">
+        <button id="dwn">Download PDF</button>
+    </div>
+</body>
+<script>
+    function print(quality = 1) {
+		const filename  = 'idcard.pdf';
+
+		html2canvas(document.querySelector('.id-card-container'), 
+								{scale: quality}
+						 ).then(canvas => {
+			let pdf = new jsPDF('p', 'mm', 'a4');
+			pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 45, 30, 0,0);
+			pdf.save(filename);
+		});
+	}
+    document.querySelector("#dwn").onclick = ()=>{
+        print(quality=1);
+    }
+</script>
+</html>

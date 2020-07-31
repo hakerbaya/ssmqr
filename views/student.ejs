@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resgister Student</title>
+</head>
+<body>
+  <form action="/student" method="post" enctype="multipart/form-data">
+    <label for="pic">Student Photo</label>
+    <input type="file" name="pic" id="pic"><br>
+    <label for="enrollId">Enroll Id</label>
+    <input type="text" name="enrollId" id="enrollId"/><br>
+    <label for="firstName">First Name</label>
+    <input type="text" name="firstName" id="firstName"><br>
+    <label for="middleName">Middle Name</label>
+    <input type="text" name="middleName" id="middleName"><br>
+    <label for="lastName">Last Name</label>
+    <input type="text" name="lastName" id="lastName"><br>
+    <label for="gender">Gender</label>
+    <input type="text" name="gender" id="gender"><br>
+    <label for="dob">DOB</label>
+    <input type="text" name="dob" id="dob"><br>
+    <label for="parentage">Parentage</label>
+    <input type="text" name="parentage" id="parentage"><br>
+    <label for="address">address</label>
+    <input type="text" name="address" id="address"><br>
+    <label for="department">Department</label>
+    <input type="text" name="department" id="department"><br>
+    <label for="semester">Semester</label>
+    <input type="text" name="semester" id="semester"><br>
+    <label for="section">Section</label>
+    <input type="text" name="section" id="section"><br>
+    <label for="busStop">Bus Stop</label>
+    <input type="text" name="busStop" id="busStop"><br>
+    <input type="submit" name="upload_details" value="submit"/> <br>
+
+    <% msg %>
+
+
+  </form>
+</body>
+</html>

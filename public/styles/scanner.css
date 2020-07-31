@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
+
+*,
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+    
+body{
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        background:#f2f2f2;
+        
+    }
+    canvas {
+        display: none;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+        /* background-color: #f2f2f2; */
+    }
+    video{
+        border-radius: 10px;
+        width: 500px;
+        
+        /* box-shadow: 0px 0px 10px 5px #DCDCDC; */
+    }
+    .video-container{
+        
+        display: flex;
+        justify-content: center;
+
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    .container-details{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #5aabca;
+        margin-top: 10px;
+        border-radius: 10px;
+        background: #24c4169c; /* fallback for old browsers */
+        
+    }
+    .details{
+        display: flex;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .details p {
+        margin: 0;
+        color: white;
+        
+    }
+    .photo img{
+        border: 2px solid white;
+    }
+    
+
+
+    /* Styles */
+
+            h1 {
+    height: 70px;
+    }
+
+    h1 span {
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    animation: bounce .3s ease infinite alternate;
+    font-family: 'Titan One', cursive;
+    font-size: 30px;
+    color: #FFF;
+    text-shadow: 0 1px 0 #CCC,
+                0 2px 0 #CCC,
+                0 3px 0 #CCC,
+                0 4px 0 #CCC,
+                0 5px 0 #CCC,
+                0 6px 0 transparent,
+                0 7px 0 transparent,
+                0 8px 0 transparent,
+                0 9px 0 transparent,
+                0 10px 10px rgba(0, 0, 0, .4);
+    }
+
+    h1 span:nth-child(2) { animation-delay: .1s; }
+    h1 span:nth-child(3) { animation-delay: .2s; }
+    h1 span:nth-child(4) { animation-delay: .3s; }
+    h1 span:nth-child(5) { animation-delay: .4s; }
+    h1 span:nth-child(6) { animation-delay: .5s; }
+    h1 span:nth-child(7) { animation-delay: .6s; }
+    h1 span:nth-child(8) { animation-delay: .7s; }
+
+    @keyframes bounce {
+    100% {
+        top: -0px;
+        text-shadow: 0 1px 0 #CCC,
+                    0 2px 0 #CCC,
+                    0 3px 0 #CCC,
+                    0 4px 0 #CCC,
+                    0 5px 0 #CCC,
+                    0 6px 0 #CCC,
+                    0 7px 0 #CCC,
+                    0 8px 0 #CCC,
+                    0 9px 0 #CCC,
+                    0 50px 25px rgba(0, 0, 0, .2);
+    }
+    }
+
+    

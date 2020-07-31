@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles/backend_styles.css">
+    <title>Add Students</title>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <article class="main">
+            <%= msg %>
+            <img src="https://img.icons8.com/cute-clipart/144/000000/form.png"/>
+            <form action="/students" method="post" enctype="multipart/form-data">
+                <h1>Student Details</h1>
+                <div class="pic">
+                
+                    <img id="pic" src="https://placehold.it/180" alt="your image" />
+                    <label>📁
+                        <input type='file' name='pic' onchange="loadFile(event)" required hidden/>
+                    </label> 
+                </div>
+                
+                
+                
+                <div class="enrollId">
+                   
+                    <input type="text" name="enrollId" id="enrollId" placeholder="Enroll No" required/>
+                </div>
+                
+                <div class="firstName">
+                    
+                    <input type="text" name="firstName" id="firstName" placeholder="First Name"required>
+                </div>
+                
+                <div class="middleName">
+                    
+                    <input type="text" name="middleName" id="middleName" placeholder="Middle Name" required>
+                </div>
+                
+                <div class="lastName">
+                    
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+                </div>
+                
+                <div class="gender">
+                   
+                    <input type="text" name="gender" id="gender" placeholder="Gender" required>
+                </div>
+                
+                <div class="dob">
+                    
+                    <input type="date" name="dob" id="dob" placeholder="DOB" required>
+                </div>
+                
+                <div class="parentage">
+                    
+                    <input type="text" name="parentage" id="parentage" placeholder="Parentage" required>  
+                </div>
+                
+                <div class="address">
+                    
+                    <input type="text" name="address" id="address" placeholder="Address" required>
+                </div>
+                
+                <div class="department">
+                    
+                    <input type="text" name="department" id="department" placeholder="Department" required>
+                </div>
+                
+                <div class="semester">
+                    
+                    <input type="text" name="semester" id="semester" placeholder="Semester" required>
+                </div>
+                
+                <div class="section">
+                    
+                    <input type="text" name="section" id="section" placeholder="Section" required>
+                </div>
+                
+                <div class="busStop">
+                    
+                    <input type="text" name="busStop" id="busStop" placeholder="Bus Stop" required>
+                </div>
+                
+                <div class="submit">
+                    <input type="submit" name="upload_details" value="register"/>
+                </div>
+                
+            
+            </form>
+        </article>
+        <aside class="aside aside1">
+            <div class="accordion">
+                <ul>
+                    <li><a href="#">🏠 Home</a></li>
+                    <li><a href="/students/all">🧑‍ Students</a></li>
+                    <li><a href="/students/add">➕ Add</a></li>
+                    <li><a href="#">⚙️ Setting</a></li>
+                </ul>
+            </div>
+        </aside>
+        <!-- <aside class="aside aside2">
+            <h1>aside2</h1>
+        </aside> -->
+        <footer class="footer">
+            <table>
+                <tr>Developed By Mubashir Ahmad</tr>
+                <td>Check My Github Repo Here <a href="https://www.gihub.com/hakerbaya">Github</a></td>
+            </table>
+        </footer>
+    </div>
+</body>
+<script>
+    const loadFile = function(event) {
+    const reader = new FileReader();
+    reader.onload = function(){
+      const pic = document.getElementById('pic');
+      pic.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+  
+</script>
+</html>

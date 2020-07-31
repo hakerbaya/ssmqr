@@ -1,0 +1,203 @@
+@charset "UTF-8";
+/* Please ❤ this if you like it! */
+/* Follow Me https://codepen.io/designfenix */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+body {
+  background: #ececec;
+}
+
+.hole-wrapper {
+  overflow: hidden;
+  position: absolute;
+  height: 180px;
+  width: 160px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.hole-wrapper .hole {
+  left: 0;
+  bottom: 0;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  position: absolute;
+  width: 160px;
+  height: 40px;
+  border-radius: 200%;
+  background: #333333;
+  box-shadow: inset 0 10px 0 #c0c0c0;
+  -webkit-animation: showHole .5s both;
+          animation: showHole .5s both;
+}
+.hole-wrapper .hole .arm {
+  position: absolute;
+  bottom: 0px;
+  width: 30px;
+  height: 45px;
+  -webkit-transform: translate(-40%, 0);
+          transform: translate(-40%, 0);
+  left: 50%;
+  background: #f5b078;
+  -webkit-animation: showArm .5s both;
+          animation: showArm .5s both;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+  -webkit-clip-path: polygon(0 0, 75% 0, 100% 100%, 3% 100%);
+          clip-path: polygon(0 0, 75% 0, 100% 100%, 3% 100%);
+}
+.hole-wrapper .hole .hand {
+  position: absolute;
+  top: -30px;
+  left: 60px;
+  -webkit-animation: showArm .5s both;
+          animation: showArm .5s both;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+}
+.hole-wrapper .hole .hand:after {
+  content: '';
+  display: block;
+  background: #f5b078;
+  position: absolute;
+  width: 36px;
+  height: 40px;
+  top: 0;
+  border-radius: 50px 25px / 52% 84%;
+  z-index: 0;
+}
+.hole-wrapper .hole .hand .finger-up {
+  z-index: 2;
+  position: absolute;
+  top: -20px;
+  right: -8px;
+  width: 12px;
+  display: block;
+  border-radius: 20px;
+  background: #f5b078;
+  height: 36px;
+  -webkit-clip-path: polygon(21% 0, 57% 0, 84% 51%, 100% 100%, 24% 100%, 21% 50%);
+          clip-path: polygon(21% 0, 57% 0, 84% 51%, 100% 100%, 24% 100%, 21% 50%);
+}
+.hole-wrapper .hole .hand .finger {
+  z-index: 2;
+  position: relative;
+  width: 25px;
+  display: block;
+  border-radius: 20px;
+  background: #f5b078;
+  height: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.hole-wrapper .hole .hand .finger:nth-child(3) {
+  width: 23px;
+}
+.hole-wrapper .hole .hand .finger:nth-child(4) {
+  width: 23px;
+  height: 9px;
+}
+.hole-wrapper .hole .hand .finger:nth-child(5) {
+  height: 8px;
+  width: 23px;
+}
+.hole-wrapper .hole .wood {
+  height: 155px;
+  width: 14px;
+  position: absolute;
+  z-index: 1;
+  bottom: 25px;
+  left: 70px;
+  background: #bc6043;
+  border-radius: 10px;
+  -webkit-animation: showArm .5s both;
+          animation: showArm .5s both;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+}
+.hole-wrapper .hole .wood:before {
+  font-family: "Montserrat", sans-serif;
+  content: 'Not Found';
+  font-weight: bold;
+  display: block;
+  background: white;
+  width: 125px;
+  position: absolute;
+  height: 60px;
+  left: -58px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 20px;
+}
+
+@-webkit-keyframes showHole {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes showHole {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes showArm {
+  0% {
+    -webkit-transform: translate(-40%, 200px);
+            transform: translate(-40%, 200px);
+  }
+  100% {
+    -webkit-transform: translatey(-40%, 0);
+            transform: translatey(-40%, 0);
+  }
+}
+@keyframes showArm {
+  0% {
+    -webkit-transform: translate(-40%, 200px);
+            transform: translate(-40%, 200px);
+  }
+  100% {
+    -webkit-transform: translatey(-40%, 0);
+            transform: translatey(-40%, 0);
+  }
+}
+.dev {
+  font-family: "Montserrat", sans-serif;
+  position: fixed;
+  font-size: 14px;
+  top: 10px;
+  left: 10px;
+  padding: 1em;
+  color: #333333;
+  background-color: white;
+  border-radius: 25px;
+}
+.dev a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333333;
+  -webkit-transition: ease all .3s;
+  transition: ease all .3s;
+}
+.dev a:hover {
+  color: #EF5350;
+  text-decoration: underline;
+}
+.dev span {
+  color: #EF5350;
+}
+
+
+    
+
+
+

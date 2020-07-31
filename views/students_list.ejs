@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles/backend_styles.css">
+    <title>Add Students</title>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <article class="main">
+            <div class="student-list">
+
+                <div class="filter-box">
+                    
+                        <select name="page-count" id="page-count" onchange="location = this.value;"">
+                            <option><%= data.currentLimit %></option>
+                            
+                            <option value="/students/all?page=<%= data.currentPage %>&limit=1&sem=<%= data.semester %>">1</a></option>
+                            <option value="/students/all?page=<%= data.currentPage %>&limit=2&sem=<%= data.semester %>">2</option>
+                            <option value="/students/all?page=<%= data.currentPage %>&limit=3&sem=<%= data.semester %>">3</option>
+                            <option value="/students/all?page=<%= data.currentPage %>&limit=4&sem=<%= data.semester %>">4</option>
+                        </select>
+                     
+                    
+                    <select name="select-semester" id="select-semester" onchange="location = this.value;">
+                       <option> <%= data.semester %></option>
+                       <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=all">All</option>
+                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=1st">1st</option>
+                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=2nd"">2nd</option>
+                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=3rd"">3rd</option>
+                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=4th"">4th</option>
+                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=5th"">5th</option>
+                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=6th"">6th</option>
+                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=7th"">7th</option>
+                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=8th"">8th</option>
+                        
+                    </select>
+                     
+<!--                      
+                        <select name="sort-by" id="sort-by">
+                            <option value="">Sort</option>
+                            <option value="ASC">ASC</option>
+                            <option value="DSC">DSC</option>
+                        </select> -->
+                    
+                    
+
+                    <input type="text" name="search" id="search" placeholder="Search"/>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>Enroll</th>
+                        <th>Name</th>
+                        <th>Dep</th>
+                        <th>Semester</th>
+                        <th>Sec</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <% for (var i = 0; i < data.results.length; i++) { %>
+                        
+                    
+                    <tr>
+                        <td><%= data.results[i].enrollId %></td>
+                        <td><%= data.results[i].firstName %> <%= data.results[i].lastName %></td>
+                        <td><%= data.results[i].department %></td>
+                        <td><%= data.results[i].semester %></td>
+                        <td><%= data.results[i].section %></td>
+                        <td><a href="/students/edit/<%= data.results[i].enrollId %>"> 📝</a></td>
+                        <td><a href="/students/idcard?id=<%= data.results[i].enrollId %>">🎴</a></td>
+                        <td id="delete-icon" data-enroll=<%= data.results[i].enrollId %>>🗑️</td>
+                    </tr>
+
+                    <% } %>
+
+                    
+                    
+                </table>
+                
+                <div class="button-container">
+                        <% if(data.previous != undefined) { %> 
+                        <a href="/students/all?page=<%= data.previous.page %>&limit=<%= data.currentLimit %>&sem=<%= data.semester %>"><button class="btn previous">Prev</button></a>
+                        <% } %>
+                        
+                        <% if(data.next != undefined) { %> 
+                            <a href="/students/all?page=<%= data.next.page %>&limit=<%= data.currentLimit %>&sem=<%= data.semester %>"><button class="btn next">Next</button></a>
+                        <% } %>
+                        
+                    
+                    
+                    
+                </div>
+
+            </div>
+
+           
+            
+        </article>
+        <aside class="aside aside1">
+            <div class="accordion">
+                <ul>
+                    <li><a href="#">🏠 Home</a></li>
+                    <li><a href="/students/all">🧑‍ Students</a></li>
+                    <li><a href="/students/add">➕ Add</a></li>
+                    <li><a href="#">⚙️ Setting</a></li>
+                </ul>
+            </div>
+        </aside>
+        <!-- <aside class="aside aside2">
+            <h1>aside2</h1>
+        </aside> -->
+        <footer class="footer">
+            <table>
+                <tr>Developed By Mubashir Ahmad</tr>
+                <td>Check My Github Repo Here <a href="https://www.gihub.com/hakerbaya">Github</a></td>
+               
+            </table>
+            
+        </footer>
+    </div>
+</body>
+<script>
+    const loadFile = function(event) {
+    const reader = new FileReader();
+    reader.onload = function(){
+      const pic = document.getElementById('pic');
+      pic.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+  
+  const deleteIcons = document.querySelectorAll("#delete-icon");
+  
+
+  // Selecting Any Student to delete
+    for(let i=0;i<deleteIcons.length;i++){
+        deleteIcons[i].onclick = function(){
+            deleteThis(this);
+        }
+        
+    }
+
+    // Delete Function to delete the student
+    function deleteThis(current){
+        for(let i=0;i<deleteIcons.length;i++){
+            if(deleteIcons[i] == current){
+                console.log(deleteIcons[i].dataset.enroll);
+                let enroll = deleteIcons[i].dataset.enroll;
+                fetch(`/students/delete?id=${enroll}`, {
+                    method: 'DELETE',
+                })
+
+                .then((response)=>{
+                        if(response.status == "200"){
+                            deleteIcons[i].parentElement.remove();
+                        } else{
+                            return false;
+                        }
+                        
+                    
+                })
+
+                .catch((err)=>{
+                    console.log(err);
+                });
+            }
+        }
+    }
+</script>
+</html>

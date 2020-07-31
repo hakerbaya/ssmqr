@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/styles/backend_styles.css">
+    <title>Edit Students</title>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <article class="main">
+            <h1 id="update-status"></h1>
+            <img src="https://img.icons8.com/cute-clipart/144/000000/form.png"/>
+            <form action="/students/edit/<%= data.enrollId %>" method="put" enctype="multipart/form-data">
+                <h1>Edit Student Details </h1>
+                <div class="pic" style="display: flex; justify-content: space-between;">
+                    <div class="upload-container">
+                        <img id="pic" src="../../uploads/<%= data.pic %>" alt="your image" />
+                        <label>📁
+                            <input type='file' name='pic' onchange="loadFile(event)"  disabled required hidden/>
+                        </label>
+                        <button id="change">Change</button> 
+                    </div>
+
+                    <div class="edit-toggle" style="display: flex; justify-content: flex-end;">
+                        
+                            <label>
+                                <input type="checkbox" id="chk">
+                                <div></div>
+                            </label>
+                       
+                        
+                    </div>
+                    
+                </div>
+                
+                
+                
+                <div class="enrollId">
+                   
+                    <input type="text" name="enrollId" id="enrollId" value="<%= data.enrollId %>" placeholder="<%= data.enrollId %>"  disabled required/>
+                </div>
+                
+                <div class="firstName">
+                    
+                    <input type="text" name="firstName" id="firstName" value="<%= data.firstName %>" placeholder="<%= data.firstName %>" disabled equired>
+                </div>
+                
+                <div class="middleName">
+                    
+                    <input type="text" name="middleName" id="middleName" value="<%= data.middleName %>" placeholder="<%= data.middleName %>" disabled required>
+                </div>
+                
+                <div class="lastName">
+                    
+                    <input type="text" name="lastName" id="lastName" value="<%= data.lastName %>" placeholder="<%= data.lastName %>" disabled  required>
+                </div>
+                
+                <div class="gender">
+                   
+                    <input type="text" name="gender" id="gender" value="<%= data.gender %>" placeholder="<%= data.gender %>" disabled required>
+                </div>
+                
+                <div class="dob">
+                    
+                    <input type="date" name="dob" id="dob" value="<% if(data.dob.getMonth() < 10 && data.dob.getUTCDate() < 10) { %><%= data.dob.getFullYear() %>-0<%= data.dob.getMonth()+1 %>-0<%= data.dob.getUTCDate() %><% } else if(data.dob.getUTCDate() < 10) { %><%= data.dob.getFullYear() %>-<%= data.dob.getMonth()+1 %>-0<%= data.dob.getUTCDate() %><% } else if(data.dob.getMonth()+1 < 10) { %><%= data.dob.getFullYear() %>-0<%= data.dob.getMonth()+1 %>-<%= data.dob.getUTCDate() %><% } else { %><%= data.dob.getFullYear() %>-<%= data.dob.getMonth()+1 %>-<%= data.dob.getUTCDate() %><% } %>" placeholder="<%= data.dob.getFullYear() %>-<%= data.dob.getMonth() %>-<%= data.dob.getDay() %>" disabled required>
+                </div>
+                
+                <div class="parentage">
+                    
+                    <input type="text" name="parentage" id="parentage" value="<%= data.parentage %>" placeholder="<%= data.parentage %>" disabled required>  
+                </div>
+                
+                <div class="address">
+                    
+                    <input type="text" name="address" id="address" value="<%= data.address %>" placeholder="<%= data.address %>" disabled required>
+                </div>
+                
+                <div class="department">
+                    
+                    <input type="text" name="department" id="department" value="<%= data.department %>" placeholder="<%= data.department %>" disabled required>
+                </div>
+                
+                <div class="semester">
+                    
+                    <input type="text" name="semester" id="semester" value="<%= data.semester %>" placeholder="<%= data.semester %>" disabled required>
+                </div>
+                
+                <div class="section">
+                    
+                    <input type="text" name="section" id="section" value="<%= data.section %>" placeholder="<%= data.section %>" disabled required>
+                </div>
+                
+                <div class="busStop">
+                    
+                    <input type="text" name="busStop" id="busStop" value="<%= data.busStop %>" placeholder="<%= data.busStop %>" disabled required>
+                </div>
+                
+                <div class="submit">
+                    <input type="submit" name="upload_details" value="update" id="update" disabled/>
+                </div>
+                
+            
+            </form>
+        </article>
+        <aside class="aside aside1">
+            <div class="accordion">
+                <ul>
+                    <li><a href="#">🏠 Home</a></li>
+                    <li><a href="/students/all">🧑‍ Students</a></li>
+                    <li><a href="/students/add">➕ Add</a></li>
+                    <li><a href="#">⚙️ Setting</a></li>
+                </ul>
+            </div>
+        </aside>
+        <!-- <aside class="aside aside2">
+            <h1>aside2</h1>
+        </aside> -->
+        <footer class="footer">
+            <table>
+                <tr>Developed By Mubashir Ahmad</tr>
+                <td>Check My Github Repo Here <a href="https://www.gihub.com/hakerbaya">Github</a></td>
+            </table>
+        </footer>
+    </div>
+</body>
+<script>
+    const loadFile = function(event) {
+    const reader = new FileReader();
+    reader.onload = function(){
+      const pic = document.getElementById('pic');
+      pic.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+
+  // Handling Toggle To Disable and Enable Fields
+
+  const toggle = document.querySelector("#chk");
+  const inputFields = document.querySelectorAll(".main form input");
+   
+  //Handling Toggle
+  toggle.onclick = ()=>{
+        if(toggle.checked){
+        for(let i=0;i<inputFields.length;i++){
+            if(i!=1){
+                inputFields[i].removeAttribute("disabled");
+            }
+        }
+    }else{
+        for(let i=0;i<inputFields.length;i++){
+            if(i!=1){
+                inputFields[i].setAttribute("disabled","");
+                
+            }
+        }
+    }
+  }
+
+  // Handling Update Student Using Fetch
+    // Lets Get Some Variables Fist
+    
+    let url = document.querySelector("form").getAttribute("action");
+    let fullUrl = `${url}`;
+    console.log(fullUrl);
+
+    document.querySelector("#update").onclick = (e)=>{
+            e.preventDefault();
+            let formData = {
+            enrollId: document.querySelector("#enrollId").value,
+            firstName: document.querySelector("#firstName").value,
+            middleName: document.querySelector("#middleName").value,
+            lastName: document.querySelector("#lastName").value,
+            gender: document.querySelector("#gender").value,
+            dob: document.querySelector("#dob").value,
+            parentage: document.querySelector("#parentage").value,
+            address: document.querySelector("#address").value,
+            department: document.querySelector("#department").value,
+            semester: document.querySelector("#semester").value,
+            section: document.querySelector("#section").value,
+            busStop: document.querySelector("#busStop").value,
+        }
+            const updateFormRequest = new XMLHttpRequest;
+            updateFormRequest.open("PUT",fullUrl,true);
+            updateFormRequest.setRequestHeader('Content-Type','application/json');
+            updateFormRequest.setRequestHeader('X-Requested-With','XMLHttpRequest');
+            updateFormRequest.onreadystatechange = ()=>{
+                if(updateFormRequest.readyState==4&&updateFormRequest.status==200){
+                   document.querySelector("#update-status").innerHTML = "Updated";
+                } 
+            }
+            updateFormRequest.send(JSON.stringify(formData));
+
+        }
+
+        document.querySelector("#change").onclick = ()=>{
+
+            const fileData = new FormData();
+            const fileField = document.querySelector('input[type="file"]');
+            const enrollId = document.querySelector("#enrollId").value;
+            
+            fileData.append('pic', fileField.files[0]);
+
+            fetch(`/students/changePic?id=${enrollId}`, {
+            method: 'PUT',
+            body: fileData
+            })
+            .then((response) => {console.log("Success")})
+
+            .catch((err)=>{console.log("error")});
+        }
+        
+        
+    
+    
+
+  
+
+  
+  
+</script>
+</html>
