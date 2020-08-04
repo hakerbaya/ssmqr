@@ -51,7 +51,7 @@
                 
                 <div class="dob">
                     
-                    <input type="date" name="dob" id="dob" placeholder="DOB" required>
+                    <input type="date" name="dob" min='1985-01-01' id="dob" placeholder="DOB" required>
                 </div>
                 
                 <div class="parentage">
@@ -121,6 +121,25 @@
     };
     reader.readAsDataURL(event.target.files[0]);
   };
+
+  // Function for Validation for DOB
+  function validateDOB(){
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1; //January is 0!
+    let yyyy = today.getFullYear();
+    if(dd<10){
+            dd='0'+dd
+        } 
+        if(mm<10){
+            mm='0'+mm
+        } 
+
+    today = yyyy+'-'+mm+'-'+dd;
+    document.querySelector("#dob").setAttribute("max", today);
+  }
+  validateDOB();
+
   
 </script>
 </html>
