@@ -50,7 +50,8 @@ router.get('/add',(req,res)=>{
 
 // Get Route for Rendering Student List Page, Also Handle Here all filter Requests
 router.get('/all', paginatedResults(student), (req,res)=>{
-   
+ 
+
 // res.json(res.paginatedResults);
 res.render("students_list.ejs",{data:res.paginatedResults});
 // console.log(res.paginatedResults);
@@ -64,16 +65,13 @@ router.get('/edit/:id',async (req,res)=>{
     var qrURL = '';
     student.findOne({'enrollId' : id})
         .then((response)=>{
-        
-
-        
         res.render('edit_student.ejs',{data:response});
 })
 
 .catch((err)=>{
-    if(err){
+    
         res.render('404.ejs');
-    }
+    
     
     });
 });
@@ -155,7 +153,7 @@ router.get('/idcard',(req,res)=>{
     })
 
     .catch((err)=>{
-        console.log(err);
+        res.render("404.ejs");
     })
 
 });

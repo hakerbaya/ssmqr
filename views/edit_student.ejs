@@ -131,6 +131,7 @@
     reader.onload = function(){
       const pic = document.getElementById('pic');
       pic.src = reader.result;
+      document.querySelector("#change").removeAttribute("disabled");
     };
     reader.readAsDataURL(event.target.files[0]);
   };
@@ -146,7 +147,7 @@
         for(let i=0;i<inputFields.length;i++){
             if(i!=1){
                 inputFields[i].removeAttribute("disabled");
-                document.querySelector("#change").removeAttribute("disabled");
+                
             }
         }
     }else{
