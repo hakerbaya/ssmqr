@@ -20,7 +20,7 @@
                         <label>📁
                             <input type='file' name='pic' onchange="loadFile(event)"  disabled required hidden/>
                         </label>
-                        <button id="change">Change</button> 
+                        <button id="change" disabled>Change</button> 
                     </div>
 
                     <div class="edit-toggle" style="display: flex; justify-content: flex-end;">
@@ -107,10 +107,10 @@
         <aside class="aside aside1">
             <div class="accordion">
                 <ul>
-                    <li><a href="#">🏠 Home</a></li>
+                    <!-- <li><a href="#">🏠 Home</a></li> -->
                     <li><a href="/students/all">🧑‍ Students</a></li>
                     <li><a href="/students/add">➕ Add</a></li>
-                    <li><a href="#">⚙️ Setting</a></li>
+                    <li><a href="/setting">⚙️ Setting</a></li>
                 </ul>
             </div>
         </aside>
@@ -146,12 +146,14 @@
         for(let i=0;i<inputFields.length;i++){
             if(i!=1){
                 inputFields[i].removeAttribute("disabled");
+                document.querySelector("#change").removeAttribute("disabled");
             }
         }
     }else{
         for(let i=0;i<inputFields.length;i++){
             if(i!=1){
                 inputFields[i].setAttribute("disabled","");
+                document.querySelector("#change").setAttribute("disabled","");
                 
             }
         }

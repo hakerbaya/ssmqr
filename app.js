@@ -9,6 +9,8 @@ const student = require('./routes/student');
 const admin= require('./routes/admin');
 const verify = require('./routes/verify');
 const scanner = require('./routes/scanner');
+const setting = require('./routes/setting');
+const home = require('./routes/home');
 
 const mongoose = require('mongoose');
 // Connecting to cloud MongoDB
@@ -37,6 +39,8 @@ app.use('/students',student);
 app.use('/admin',admin);
 app.use('/verify',verify);
 app.use('/scanner',scanner);
+app.use('/setting',setting);
+app.use('/',home);
 
 app.listen(process.env.PORT || 3000,()=>{
     console.log("App is Connected");

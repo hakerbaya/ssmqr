@@ -1,0 +1,130 @@
+body {
+    width: 100%;
+    align-items: center;
+    line-height: 1.25;
+    font-family: 'Hind', sans-serif;
+    display: flex;
+    flex-direction: column;
+     background: #ffffff;
+  }
+  
+  body, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .wrapper {
+    margin: 3em auto;
+    max-width: 960px;
+  }
+  
+  .wrapper, .main-intro, .twitter, footer {
+    padding: 0 1em;
+  }
+  
+  .main-intro h2 {
+    font-weight: 300;
+    font-size: 1.25em;
+    color: #CCCCB2;
+  }
+  
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+  
+  .project {
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 300px;
+    justify-content: center;
+    text-align: center;
+    padding: 2em;
+    margin: 1.2em;
+    border-radius: .5em;
+    transition: transform .5s;
+  }
+  
+  .project svg {
+    width: 4em;
+    fill: white;
+    margin-bottom: 2em;
+  }
+  
+  .project p {
+    font-size: 1em;
+    font-weight: 500;
+    backface-visibility: hidden;
+  }
+  
+  .project a {
+    text-decoration: none;
+    color: white;
+    display: block;
+  }
+  
+  .twitter {
+    margin: 2em 0;
+  }
+  
+  .insta {
+    background: #E4405F;
+  }
+  .insta:hover {
+  background: #833ab4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  
+  }
+  
+  .git {
+    background: #181717;
+  }
+  
+  .codepen {
+    background: black;
+  }
+  
+  .linkedin {
+    background: #0077B5;
+  }
+  .linkedin:hover {
+  background-color:#015582;
+  
+  }
+  
+  footer {
+    margin-top: 2em;
+    color: #CCCCB2;
+  }
+  
+  footer a {
+    color: black;
+  }
+  
+  .love {
+    color: red;
+    margin: 0 .25em;
+  }
+  
+  @media (min-device-width: 768px) {
+    .project {
+      flex: 1 200px;
+    }
+  }
+  
+  @media (min-width: 960px) {
+    .main-intro h2 {
+      font-size: 2em;
+    }
+    .project {
+      flex: 1 150px;
+    }
+    .project:hover {
+      transform: scale(1.1);
+    }
+  }

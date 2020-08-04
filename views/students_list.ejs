@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/styles/backend_styles.css">
-    <title>Add Students</title>
+    <title>Dashboard</title>
 </head>
 <body>
     <div class="wrapper">
@@ -17,10 +17,10 @@
                         <select name="page-count" id="page-count" onchange="location = this.value;"">
                             <option><%= data.currentLimit %></option>
                             
-                            <option value="/students/all?page=<%= data.currentPage %>&limit=1&sem=<%= data.semester %>">1</a></option>
-                            <option value="/students/all?page=<%= data.currentPage %>&limit=2&sem=<%= data.semester %>">2</option>
-                            <option value="/students/all?page=<%= data.currentPage %>&limit=3&sem=<%= data.semester %>">3</option>
-                            <option value="/students/all?page=<%= data.currentPage %>&limit=4&sem=<%= data.semester %>">4</option>
+                            <option value="/students/all?page=<%= data.currentPage %>&limit=1&sem=<%= data.semester %>">10</a></option>
+                            <option value="/students/all?page=<%= data.currentPage %>&limit=2&sem=<%= data.semester %>">20</option>
+                            <option value="/students/all?page=<%= data.currentPage %>&limit=3&sem=<%= data.semester %>">30</option>
+                            <option value="/students/all?page=<%= data.currentPage %>&limit=4&sem=<%= data.semester %>">40</option>
                         </select>
                      
                     
@@ -47,10 +47,10 @@
                     
                     
 
-                    <input type="text" name="search" id="search" placeholder="Search"/>
+                    <input type="text" name="search" id="search" placeholder="Search By Enroll"/>
                 </div>
 
-                <table>
+                <table class="student-details-class">
                     <tr>
                         <th>Enroll</th>
                         <th>Name</th>
@@ -103,10 +103,10 @@
         <aside class="aside aside1">
             <div class="accordion">
                 <ul>
-                    <li><a href="#">🏠 Home</a></li>
+                    <!-- <li><a href="#">🏠 Home</a></li> -->
                     <li><a href="/students/all">🧑‍ Students</a></li>
                     <li><a href="/students/add">➕ Add</a></li>
-                    <li><a href="#">⚙️ Setting</a></li>
+                    <li><a href="/setting">⚙️ Setting</a></li>
                 </ul>
             </div>
         </aside>
@@ -134,6 +134,8 @@
   };
   
   const deleteIcons = document.querySelectorAll("#delete-icon");
+  const search = document.querySelector("#search");
+  const searchURL = "/students/search?id=";
   
 
   // Selecting Any Student to delete
@@ -170,5 +172,50 @@
             }
         }
     }
+
+    // Event for handling Enter Key when pressed (Search)
+    search.addEventListener("keyup", (e)=> {
+  // Number 13 is the "Enter" key on the keyboard
+        if (e.keyCode === 13) {
+            console.log(searchURL+search.value);
+            fetch(searchURL+search.value)
+            .then((response)=>{
+                if(response.status == 200){
+                    return response.json();
+                }
+            })
+
+            .then((elem)=>{
+                document.querySelector(".student-details-class").innerHTML = `
+                    <tr>
+                        <th>Enroll</th>
+                        <th>Name</th>
+                        <th>Dep</th>
+                        <th>Semester</th>
+                        <th>Sec</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+                    <tr>
+                        <td>${elem.enrollId}</td>
+                        <td>${elem.firstName} ${elem.lastName}</td>
+                        <td>${elem.department}</td>
+                        <td>${elem.semester}</td>
+                        <td>${elem.section}</td>
+                        <td><a href="/students/edit/${elem.enrollId}"> 📝</a></td>
+                        <td><a href="/students/idcard?id=${elem.enrollId}">🎴</a></td>
+                        <td id="delete-icon" data-enroll=${elem.enrollId}>🗑️</td>
+                    </tr>
+                    `
+                
+            })
+
+            .catch((err)=>{
+                document.querySelector(".student-details-class").innerHTML = "Not Found";
+            })
+        }
+    })
 </script>
 </html>

@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
     storage: storage,
-    limits: {fileSize: 512000},
+    limits: {fileSize: 51200000},
     fileFilter: function(req,file,cb){
         let extension = path.extname(file.originalname);
         if(extension!== '.png' && extension!== '.jpg' && extension!== '.jpeg'){
@@ -53,7 +53,7 @@ router.get('/all', paginatedResults(student), (req,res)=>{
    
 // res.json(res.paginatedResults);
 res.render("students_list.ejs",{data:res.paginatedResults});
-console.log(res.paginatedResults);
+// console.log(res.paginatedResults);
 
 });
 
@@ -79,8 +79,8 @@ router.get('/edit/:id',async (req,res)=>{
 });
 // Post Route for Making New Student ID Card
 router.post('/',upload,(req,res)=>{
-    console.log(req.body);
-    console.log(req.file);
+    // console.log(req.body);
+    // console.log(req.file);
 
 
 var qrCode = '';
@@ -126,13 +126,13 @@ router.put('/edit/:id',async (req,res)=>{
     let newObj = {};
     Object.keys(req.body).forEach((key)=>{
         if(key!= "enrollId"){
-            console.log(key);
+            // console.log(key);
             newObj[key] = req.body[key];
         }
         
         
     });
-    console.log(newObj);
+    // console.log(newObj);
     student.findOneAndUpdate(query, { $set: newObj})
         .then((response)=>{
             // filePath = `../../uploads/${response.pic}`;
@@ -158,6 +158,19 @@ router.get('/idcard',(req,res)=>{
         console.log(err);
     })
 
+});
+
+// Route for searching Particular Student
+router.get('/search',(req,res)=>{
+    student.findOne({'enrollId' : req.query.id})
+    .then((response)=>{
+            res.send(response);
+        })
+
+    .catch((err)=>{
+         res.sendStatus(404);
+    });
+
 })
 // Router for Changing Profile Pic
 router.put('/changePic',upload,(req,res)=>{
@@ -181,7 +194,7 @@ router.put('/changePic',upload,(req,res)=>{
      student.findOneAndUpdate(query,{$set:{pic: req.file.filename}})
 
      .then((response)=>{
-        res.send("Changed Pic");
+        res.render("edit_student.ejs",{data:response});
         
 
      })
@@ -236,8 +249,8 @@ function paginatedResults(model){
             page = 1;
         }
         if(req.query.limit == undefined || req.query.limit == ""){
-            req.query.limit = 1;
-            limit = 1;
+            req.query.limit = 10;
+            limit = 10;
         }
         if(req.query.sem == undefined || req.query.sem == ""){
             req.query.sem = "all";
