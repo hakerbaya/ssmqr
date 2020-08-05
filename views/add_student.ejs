@@ -120,7 +120,23 @@
       const pic = document.getElementById('pic');
       pic.src = reader.result;
     };
-    reader.readAsDataURL(event.target.files[0]);
+    // Handle File Validation here
+    let fileSize = event.target.files[0].size / 1024 / 1024;
+    let filePath = event.target.files[0].name;
+    console.log(filePath);
+    let allowedExtensions =  
+                    /(\.jpg|\.jpeg|\.png)$/i; 
+    if(fileSize > 2){
+        alert("File size must be less than 2 mb");
+    }
+    if(!allowedExtensions.exec(filePath)){
+        alert("Invalid File Type | Accepted: Png, Jpg, Jpeg");
+    }
+    if(fileSize < 2 && allowedExtensions.exec(filePath)){
+        reader.readAsDataURL(event.target.files[0]);
+    }
+
+    
   };
 
   // Function for Validation for DOB
