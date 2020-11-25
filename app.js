@@ -36,12 +36,15 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/students',student);
-app.use('/admin',admin);
-app.use('/verify',verify);
-app.use('/scanner',scanner);
-app.use('/setting',setting);
-app.use('/',home);
+// app.use('/students',student);
+// app.use('/admin',admin);
+// app.use('/verify',verify);
+// app.use('/scanner',scanner);
+// app.use('/setting',setting);
+// app.use('/',home);
+app.get('/',(req,res)=>{
+    res.render("update.ejs");
+})
 
 app.listen(process.env.PORT || 3000,()=>{
     console.log("App is Connected");
