@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
 // Importing Router Files
-const student = require('./routes/student');
+const admin = require('./routes/admin');
 const verify = require('./routes/verify');
 const scanner = require('./routes/scanner');
 const setting = require('./routes/setting');
@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 // app.use(fileUpload());
 
-app.use('/admin',student);
+app.use('/admin',admin);
 app.use('/verify',verify);
 app.use('/scanner',scanner);
 app.use('/setting',setting);
