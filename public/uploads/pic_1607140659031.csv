@@ -1,0 +1,3 @@
+"enrollId","pic","qrCode","firstName","middleName","lastName","gender","dob","parentage","address","department","semester","section","busStop"
+9876,test.jpg,123,csvuser,ahmad,csvbhat,male,05/03/1998,mehraj,khrew,cse,7th,a,khrew
+9875,test.jpg,123,csvuser,ahmad,csvbhat,male,05/03/1998,mehraj,khrew,cse,7th,a,khrew

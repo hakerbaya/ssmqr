@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/normalize.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/mystyles.css" />
+</head>
+<body>
+    <!-- Lets Create Navigation first -->
+    <div class="wrapper">
+        <nav class="nav">
+          <ul class="nav__list" role="menubar">
+            <li class="nav__item">
+              <a
+                href="dashboard"
+                class="nav__link focus--box-shadow"
+                role="menuitem"
+                aria-label="Home"
+              >
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  role="presentation"
+                >
+                  <path
+                    fill="#6563ff"
+                    d="M20,8h0L14,2.74a3,3,0,0,0-4,0L4,8a3,3,0,0,0-1,2.26V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V10.25A3,3,0,0,0,20,8ZM14,20H10V15a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1Zm5-1a1,1,0,0,1-1,1H16V15a3,3,0,0,0-3-3H11a3,3,0,0,0-3,3v5H6a1,1,0,0,1-1-1V10.25a1,1,0,0,1,.34-.75l6-5.25a1,1,0,0,1,1.32,0l6,5.25a1,1,0,0,1,.34.75Z"
+                  />
+                </svg>
+              </a>
+            </li>
+           
+            <li class="nav__item">
+              <a
+                href="setting"
+                class="nav__link focus--box-shadow"
+                role="menuitem"
+                aria-label="Informational messages"
+                ><svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  role="presentation"
+                >
+                <path fill-rule="evenodd" d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
+                <path fill-rule="evenodd" d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
+                </svg>
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+    
+
+    <!-- Lets build the main part -->
+
+    <main class="main">
+        <header class="header">
+          <div class="header__wrapper">
+            <form action="" class="search">
+              <button class="search__button focus--box-shadow" type="submit">
+                <svg
+                  class="search__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"
+                  />
+                </svg>
+              </button>
+              <input
+                class="search__input focus--box-shadow"
+                type="text"
+                placeholder="Search"
+              />
+            </form>
+            <div class="profile">
+              <button class="profile__button">
+                <span class="profile__name">Logout</span>
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-exclamation-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+        <section class="section">
+          <header class="section__header">
+            <h2 class="section__title">Upload XLS/XLSX File</h2>
+          </header>
+
+          <form action="/admin/xls" method="POST" encType="multipart/form-data">
+            <input type="file" name="pic"/><br/><br/>
+            <input type="submit" value="Upload"/>
+          </form>
+          <!-- <% for (var i = 0; i < data.length; i++) { %> -->
+            <ul style="margin-top: 30px">
+                <li>
+                    <p><%= data[i].fileName %></p> 
+                    <div class ="csv-download">
+                        <a href="/<%= data[i].fileName %>">Download</a>
+                        <a id="delete-icon" href="#" data-filename="<%= data[i].fileName %>">Delete</a>
+                    </div>
+                    
+                </li>
+            </ul>
+            
+          <!-- <% } %> -->
+            
+        </section>
+          
+      </main>
+    </div>
+</body>
+<script>
+    const deleteIcons = document.querySelectorAll("#delete-icon");
+    // Selecting Any Student to delete
+    for(let i=0;i<deleteIcons.length;i++){
+        deleteIcons[i].onclick = function(){
+            if(confirm("Are you sure")){
+              deleteThis(this);
+            }
+            
+        }
+        
+    }
+
+    // Delete Function to delete the student
+    function deleteThis(current){
+        for(let i=0;i<deleteIcons.length;i++){
+            if(deleteIcons[i] == current){
+                // console.log(deleteIcons[i].dataset.enroll);
+                let enroll = deleteIcons[i].dataset.filename;
+                console.log(enroll);
+                fetch(`/admin/xls?filename=${enroll}`, {
+                    method: 'DELETE',
+                })
+
+                .then((response)=>{
+                        if(response.status == "200"){
+                            deleteIcons[i].parentElement.parentElement.remove();
+                        } else{
+                            return false;
+                        }
+                        
+                    
+                })
+
+                .catch((err)=>{
+                    console.log(err);
+                });
+            }
+        }
+    }
+</script>
+</html>

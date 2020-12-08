@@ -2,22 +2,24 @@
 const express = require('express');
 const app = express();
 const cors = require('cors'); 
+require('dotenv').config();
 // Importing Body Parser
 const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
+const fileUpload = require("express-fileupload");
 // Importing Router Files
 const student = require('./routes/student');
-const admin= require('./routes/admin');
 const verify = require('./routes/verify');
 const scanner = require('./routes/scanner');
 const setting = require('./routes/setting');
 const home = require('./routes/home');
 
 const mongoose = require('mongoose');
-// Connecting to cloud MongoDB
-const connectionURL = "mongodb+srv://hakerbaya:hakerbaya@cluster0.4cr36.gcp.mongodb.net/idcard?retryWrites=true&w=majority"
+
+// const connectionURL = "mongodb://127.0.0.1:27017";
 
 // Setting up Connection with MongoDB (Cloud MongoDB )
-mongoose.connect(connectionURL, { useNewUrlParser: true,useUnifiedTopology: true})
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true,useUnifiedTopology: true})
 
     .then(response=> {
         console.log("Mongo Db is connected")
@@ -27,24 +29,27 @@ mongoose.connect(connectionURL, { useNewUrlParser: true,useUnifiedTopology: true
         console.log("MongoDb failed");
     });
 
-app.use(cors());
+app.use(cors({credentials:true}));
 // Set Ejs Template Engine
 app.set('view-engine','ejs');
+mongoose.set('useFindAndModify', true);
 // Serve Static Files
 // app.use(express.static(__dirname));
 app.use(express.static('public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+// app.use(fileUpload());
 
-// app.use('/students',student);
-// app.use('/admin',admin);
-// app.use('/verify',verify);
-// app.use('/scanner',scanner);
-// app.use('/setting',setting);
-// app.use('/',home);
-app.get('/',(req,res)=>{
-    res.render("update.ejs");
-})
+app.use('/admin',student);
+app.use('/verify',verify);
+app.use('/scanner',scanner);
+app.use('/setting',setting);
+app.use('/',home);
+
+// app.get('/',(req,res)=>{
+//     res.render("update.ejs");
+// })
 
 app.listen(process.env.PORT || 3000,()=>{
     console.log("App is Connected");

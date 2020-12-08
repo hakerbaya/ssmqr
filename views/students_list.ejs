@@ -3,128 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../styles/backend_styles.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/normalize.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/mystyles.css" />
 </head>
 <body>
+    <!-- Lets Create Navigation first -->
     <div class="wrapper">
-        
-        <article class="main">
+        <nav class="nav">
+          <ul class="nav__list" role="menubar">
+            <li class="nav__item">
+              <a
+                href="dashboard"
+                class="nav__link focus--box-shadow"
+                role="menuitem"
+                aria-label="Home"
+              >
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  role="presentation"
+                >
+                  <path
+                    fill="#6563ff"
+                    d="M20,8h0L14,2.74a3,3,0,0,0-4,0L4,8a3,3,0,0,0-1,2.26V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V10.25A3,3,0,0,0,20,8ZM14,20H10V15a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1Zm5-1a1,1,0,0,1-1,1H16V15a3,3,0,0,0-3-3H11a3,3,0,0,0-3,3v5H6a1,1,0,0,1-1-1V10.25a1,1,0,0,1,.34-.75l6-5.25a1,1,0,0,1,1.32,0l6,5.25a1,1,0,0,1,.34.75Z"
+                  />
+                </svg>
+              </a>
+            </li>
+            
+            <li class="nav__item">
+              <a
+                href="setting"
+                class="nav__link focus--box-shadow"
+                role="menuitem"
+                aria-label="Informational messages"
+                ><svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  role="presentation"
+                >
+                <path fill-rule="evenodd" d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
+                <path fill-rule="evenodd" d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
+                </svg>
+              </a>
+            </li>
+           
+          </ul>
+        </nav>
+    
+
+    <!-- Lets build the main part -->
+
+    <main class="main">
+        <header class="header">
+          <div class="header__wrapper">
+            <form action="" class="search">
+              <button class="search__button focus--box-shadow" type="submit">
+                <svg
+                  class="search__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"
+                  />
+                </svg>
+              </button>
+              <input
+                class="search__input focus--box-shadow"
+                type="text"
+                placeholder="Search"
+              />
+            </form>
+            <div class="profile">
+              <button class="profile__button">
+                <span class="profile__name">Logout</span>
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-exclamation-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+        <section class="section">
+          <header class="section__header">
+            <h2 class="section__title">Student List</h2>
+            </header>
+
+
+            <!-- Filter Box -->
             <div class="student-list">
 
-                <div class="filter-box">
-                    
-                        <select name="page-count" id="page-count" onchange="location = this.value;"">
-                            <option><%= data.currentLimit %></option>
+              <div class="filter-box" style="display: flex;">
+                  
+                      <select name="page-count" id="page-count" onchange="location = this.value;"">
+                        <option><%= data.currentLimit %></option>
                             
-                            <option value="/students/all?page=<%= data.currentPage %>&limit=10&sem=<%= data.semester %>">10</a></option>
-                            <option value="/students/all?page=<%= data.currentPage %>&limit=20&sem=<%= data.semester %>">20</option>
-                            <option value="/students/all?page=<%= data.currentPage %>&limit=30&sem=<%= data.semester %>">30</option>
-                            <option value="/students/all?page=<%= data.currentPage %>&limit=40&sem=<%= data.semester %>">40</option>
-                        </select>
-                     
-                    
-                    <select name="select-semester" id="select-semester" onchange="location = this.value;">
-                       <option> <%= data.semester %></option>
-                       <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=all">All</option>
-                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=1st">1st</option>
-                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=2nd"">2nd</option>
-                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=3rd"">3rd</option>
-                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=4th"">4th</option>
-                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=5th"">5th</option>
-                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=6th"">6th</option>
-                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=7th"">7th</option>
-                        <option value="/students/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=8th"">8th</option>
-                        
-                    </select>
-                     
+                        <option value="/admin/all?page=<%= data.currentPage %>&limit=10&sem=<%= data.semester %>">10</a></option>
+                        <option value="/admin/all?page=<%= data.currentPage %>&limit=20&sem=<%= data.semester %>">20</option>
+                        <option value="/admin/all?page=<%= data.currentPage %>&limit=30&sem=<%= data.semester %>">30</option>
+                        <option value="/admin/all?page=<%= data.currentPage %>&limit=40&sem=<%= data.semester %>">40</option>
+                      </select>
+                   
+                  
+                  <select name="select-semester" id="select-semester" onchange="location = this.value;">
+                    <option> <%= data.semester %></option>
+                    <option value="/admin/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=all">All</option>
+                     <option value="/admin/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=1st">1st</option>
+                     <option value="/admin/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=2nd"">2nd</option>
+                     <option value="/admin/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=3rd"">3rd</option>
+                     <option value="/admin/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=4th"">4th</option>
+                     <option value="/admin/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=5th"">5th</option>
+                     <option value="/admin/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=6th"">6th</option>
+                     <option value="/admin/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=7th"">7th</option>
+                     <option value="/admin/all?page=<%= data.currentPage %>&limit=<%= data.currentLimit %>&sem=8th"">8th</option>
+                      
+                  </select>
+                   
 <!--                      
-                        <select name="sort-by" id="sort-by">
-                            <option value="">Sort</option>
-                            <option value="ASC">ASC</option>
-                            <option value="DSC">DSC</option>
-                        </select> -->
-                    
-                    
+                      <select name="sort-by" id="sort-by">
+                          <option value="">Sort</option>
+                          <option value="ASC">ASC</option>
+                          <option value="DSC">DSC</option>
+                      </select> -->
+                  
+                  
 
-                    <input type="text" name="search" id="search" placeholder="Search By Enroll"/>
-                </div>
+                  <input type="text" name="search" id="search" placeholder="Search By Enroll"/>
+              </div>
+            
+            <div class="student-list">
+              <table class="student-details-class">
+                <tr>
+                  <th>Enroll</th>
+                  <th>Name</th>
+                  <th>Dep</th>
+                  <th>Sem</th>
+                  <th>Sec</th>
+                  
+                </tr>
+                <% for (var i = 0; i < data.results.length; i++) { %>
+                <tr style="text-align: center;">
+                  <td><%= data.results[i].enrollId %></td>
+                  <td><%= data.results[i].firstName %> <%= data.results[i].lastName %></td>
+                  <td><%= data.results[i].department %></td>
+                  <td><%= data.results[i].semester %></td>
+                  <td><%= data.results[i].section %></td>
+                  <td>
+                    <a href="/admin/edit/<%= data.results[i].enrollId %>">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-pen-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M13.498.795l.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
+                    </svg>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="/admin/idcard?id=<%= data.results[i].enrollId %>">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-card-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                      <path fill-rule="evenodd" d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    </a>
+                  </td>
+                  <td>
+                    <svg id="delete-icon" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-enroll=<%= data.results[i].enrollId %>>
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
 
-                <table class="student-details-class">
-                    <tr>
-                        <th>Enroll</th>
-                        <th>Name</th>
-                        <th>Dep</th>
-                        <th>Semester</th>
-                        <th>Sec</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <% for (var i = 0; i < data.results.length; i++) { %>
-                        
-                    
-                    <tr>
-                        <td><%= data.results[i].enrollId %></td>
-                        <td><%= data.results[i].firstName %> <%= data.results[i].lastName %></td>
-                        <td><%= data.results[i].department %></td>
-                        <td><%= data.results[i].semester %></td>
-                        <td><%= data.results[i].section %></td>
-                        <td><a href="/students/edit/<%= data.results[i].enrollId %>"> 📝</a></td>
-                        <td><a href="/students/idcard?id=<%= data.results[i].enrollId %>">🎴</a></td>
-                        <td id="delete-icon" data-enroll=<%= data.results[i].enrollId %>>🗑️</td>
-                    </tr>
-
-                    <% } %>
-
-                    
-                    
-                </table>
+                  </td>
+                </tr>
+                <% } %>
                 
-                <div class="button-container">
-                        <% if(data.previous != undefined) { %> 
-                        <a href="/students/all?page=<%= data.previous.page %>&limit=<%= data.currentLimit %>&sem=<%= data.semester %>"><button class="btn previous">Prev</button></a>
-                        <% } %>
-                        
-                        <% if(data.next != undefined) { %> 
-                            <a href="/students/all?page=<%= data.next.page %>&limit=<%= data.currentLimit %>&sem=<%= data.semester %>"><button class="btn next">Next</button></a>
-                        <% } %>
-                        
-                    
-                    
-                    
-                </div>
-
+              </table>
             </div>
 
-           
-            
-        </article>
-        <aside class="aside aside1">
-            <div class="accordion">
-                <ul>
-                    <!-- <li><a href="#">🏠 Home</a></li> -->
-                    <li><a href="/students/all">🧑‍ Students</a></li>
-                    <li><a href="/students/add">➕ Add</a></li>
-                    <li><a href="/setting">⚙️ Setting</a></li>
-                </ul>
-            </div>
-        </aside>
-        <!-- <aside class="aside aside2">
-            <h1>aside2</h1>
-        </aside> -->
-        <footer class="footer">
-            <table>
-                <tr>Developed By Mubashir Ahmad</tr>
-                <td>Check My Github Repo Here <a href="https://www.gihub.com/hakerbaya">Github</a></td>
-               
-            </table>
-            
-        </footer>
+            <div class="button-container">
+              <% if(data.previous != undefined) { %> 
+              <a href="/admin/all?page=<%= data.previous.page %>&limit=<%= data.currentLimit %>&sem=<%= data.semester %>"><button class="btn previous">Prev</button></a>
+              <% } %>
+              
+              <% if(data.next != undefined) { %> 
+                  <a href="/admin/all?page=<%= data.next.page %>&limit=<%= data.currentLimit %>&sem=<%= data.semester %>"><button class="btn next">Next</button></a>
+              <% } %>
+              
+          
+          
+          
+      </div>
+
+        </section>
+          
+      </main>
     </div>
 </body>
 <script>
+
     const loadFile = function(event) {
     const reader = new FileReader();
     reader.onload = function(){
@@ -136,13 +219,32 @@
   
   const deleteIcons = document.querySelectorAll("#delete-icon");
   const search = document.querySelector("#search");
-  const searchURL = "/students/search?id=";
+  const searchURL = "/admin/search?id=";
   
+  const logoutButton = document.querySelector(".profile__button");
+  
+  function removeCookies() {
+    let res = document.cookie;
+    let multiple = res.split(";");
+    for(let i = 0; i < multiple.length; i++) {
+        let key = multiple[i].split("=");
+        document.cookie = key[0]+" =; expires = Thu, 01 Jan 1970 00:00:00 UTC";
+    }
+  }
+  
+  logoutButton.onclick = ()=>{
+    // Clear Cookies
+    removeCookies();
+    window.location.reload();
+  }
 
   // Selecting Any Student to delete
     for(let i=0;i<deleteIcons.length;i++){
         deleteIcons[i].onclick = function(){
-            deleteThis(this);
+            if(confirm("Are you sure")){
+              deleteThis(this);
+            }
+            
         }
         
     }
@@ -153,13 +255,13 @@
             if(deleteIcons[i] == current){
                 console.log(deleteIcons[i].dataset.enroll);
                 let enroll = deleteIcons[i].dataset.enroll;
-                fetch(`/students/delete?id=${enroll}`, {
+                fetch(`/admin/delete?id=${enroll}`, {
                     method: 'DELETE',
                 })
 
                 .then((response)=>{
                         if(response.status == "200"){
-                            deleteIcons[i].parentElement.remove();
+                            deleteIcons[i].parentElement.parentElement.remove();
                         } else{
                             return false;
                         }
@@ -205,9 +307,29 @@
                         <td>${elem.department}</td>
                         <td>${elem.semester}</td>
                         <td>${elem.section}</td>
-                        <td><a href="/students/edit/${elem.enrollId}"> 📝</a></td>
-                        <td><a href="/students/idcard?id=${elem.enrollId}">🎴</a></td>
-                        <td id="delete-icon" data-enroll=${elem.enrollId}>🗑️</td>
+                        
+                        <td>
+                    <a href="/admin/edit/${elem.enrollId}">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-pen-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M13.498.795l.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
+                    </svg>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="/admin/idcard?id=${elem.enrollId}">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-card-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                      <path fill-rule="evenodd" d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    </a>
+                  </td>
+                  <td>
+                    <svg id="delete-icon" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-enroll=${elem.enrollId}>
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+
+                  </td>
                     </tr>
                     `
                 

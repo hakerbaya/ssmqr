@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-beautiful-unique-validation');
+
 
 const studentSchema = new Schema({
     pic :{
@@ -8,7 +10,9 @@ const studentSchema = new Schema({
     },
     enrollId : {
         type : Number,
-        required : true
+        required : true,
+        unique: true
+
     },
     qrCode : {
         type : String,
@@ -60,5 +64,7 @@ const studentSchema = new Schema({
         required: false
     }
 });
+
+studentSchema.plugin(uniqueValidator);
 
 module.exports = student = mongoose.model('student', studentSchema);
